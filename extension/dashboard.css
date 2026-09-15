@@ -1,0 +1,82 @@
+/* Every rule is gated by a root attribute set ONLY on the MyUSF dashboard.
+   Canvas controls, content, and event handlers remain owned by Canvas. */
+html[data-uc-dark] {
+  color-scheme: dark;
+  background: #1e1e1e !important;
+  --ic-brand-font-color-dark: #d4d4d4;
+  --ic-brand-primary: #75beff;
+  --ic-brand-primary-darkened-5: #90caff;
+  --ic-link-color: #75beff;
+  --ic-brand-global-nav-bgd: #252526;
+  --ic-brand-global-nav-ic-icon-svg-fill: #c5c5c5;
+  --ic-brand-global-nav-menu-item__text-color: #d4d4d4;
+  --ic-brand-global-nav-menu-item__text-color--active: #fff;
+  --ic-brand-global-nav-menu-item__text-color--hover: #fff;
+  --ic-brand-global-nav-menu-item__background-color--active: #37373d;
+}
+html[data-uc-dark] body { background: #1e1e1e !important; color: #d4d4d4 !important; }
+html[data-uc-dark] :is(#application, #wrapper, #main, #not_right_side, #content-wrapper, #content, #dashboard, #dashboard-planner) { background-color: transparent !important; color: #d4d4d4; }
+html[data-uc-dark] :is(#content h1, #content h2, #content h3, .ic-Dashboard-header__title) { color: #e5e5e5 !important; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important; }
+html[data-uc-dark] :is(#content h1, .ic-Dashboard-header__title) { font-size: clamp(23px, 2.4vw, 32px) !important; }
+html[data-uc-dark] :is(#content a, #footer a) { color: #75beff !important; }
+html[data-uc-dark] :is(#content a, #footer a):hover { color: #b5dfff !important; }
+html[data-uc-dark] :is(#content p, #content li, #content label, #content small, #content time, #content [class*="-text"], #content [class*="-heading"], #content [class*="-formFieldLabel"]) { color: #d4d4d4 !important; }
+html[data-uc-dark] #header { background: #252526 !important; border-right: 1px solid #404040; }
+html[data-uc-dark] .ic-app-header__menu-list-link { background-color: transparent !important; color: #ccc !important; }
+html[data-uc-dark] .ic-app-header__menu-list-item.ic-app-header__menu-list-item--active .ic-app-header__menu-list-link { background: #37373d !important; box-shadow: inset 3px 0 #007acc; color: white !important; }
+html[data-uc-dark] .ic-app-header__menu-list-link:hover { background: #333337 !important; color: #fff !important; }
+html[data-uc-dark] :is(.ic-app-header__menu-list-link svg, .ic-app-header__menu-list-link path) { fill: currentColor !important; }
+html[data-uc-dark] .ic-app-header__menu-list-item__text { color: inherit !important; }
+html[data-uc-dark] :is(.ic-Dashboard-header, .ic-Dashboard-header__layout, #dashboard_header_container) { background: #1e1e1e !important; border-color: #454545 !important; }
+html[data-uc-dark] :is(.planner-day, .Day-styles__root) { color: #d4d4d4 !important; border-color: #454545 !important; }
+html[data-uc-dark] .planner-day h2 { border-color: #454545 !important; }
+html[data-uc-dark] :is(.planner-item, [class*="PlannerItem-styles__root"], [class*="Grouping-styles__items"]) { background: #252526 !important; color: #d4d4d4 !important; border-color: #414141 !important; }
+html[data-uc-dark] .planner-item:hover { background: #2b2b2d !important; }
+html[data-uc-dark] :is([class*="PlannerItem-styles__title"], [class*="PlannerItem-styles__details"], [class*="PlannerItem-styles__date"], [class*="PlannerItem-styles__points"], [class*="PlannerItem-styles__secondary"], [class*="PlannerItem-styles__type"], [class*="EmptyDay-styles"]) { color: #c8c8c8 !important; }
+html[data-uc-dark] :is([class*="Grouping-styles__title"], [class*="Grouping-styles__header"]) { background: #252526 !important; color: #d4d4d4 !important; }
+html[data-uc-dark] :is(.ic-DashboardCard, .ic-DashboardCard__header_content, .ic-DashboardCard__action-container) { background: #252526 !important; border-color: #454545 !important; color: #d4d4d4 !important; }
+html[data-uc-dark] :is(.ic-DashboardCard__header-subtitle, .ic-DashboardCard__header-term) { color: #b6b6b6 !important; }
+html[data-uc-dark] :is(#content .Button, #content .btn, #content [class*="baseButton__content"], #content [class*="button__content"]) { background: #333337 !important; color: #e5e5e5 !important; border-color: #606060 !important; }
+html[data-uc-dark] :is(#content button, #content [role="button"]) { color: #d4d4d4 !important; }
+html[data-uc-dark] :is(#content input:not([type="checkbox"]):not([type="radio"]), #content select, #content textarea) { background: #303031 !important; color: #eee !important; border-color: #666 !important; }
+html[data-uc-dark] #content [role="tab"] { color: #aaa !important; }
+html[data-uc-dark] #content [role="tab"][aria-selected="true"] { color: #75beff !important; border-color: #007acc !important; }
+html[data-uc-dark] :is(#content [class*="checkbox__control"], #content [class*="checkbox__facade"]) { border-color: #909090 !important; }
+html[data-uc-dark] :is(#content button, #content a, #content input):focus-visible { outline: 2px solid #75beff !important; outline-offset: 2px; }
+html[data-uc-dark] :is(#footer, .ic-app-footer) { color: #aaa !important; background: transparent !important; border-color: #454545 !important; }
+/* Native menus/dialogs may be mounted outside #content. Keep them legible. */
+html[data-uc-dark] :is([role="menu"], [role="dialog"], [role="listbox"], [class*="tray__content"], [class*="modal__content"]) { background: #252526 !important; color: #ddd !important; border-color: #606060 !important; }
+html[data-uc-dark] :is([role="menu"], [role="dialog"], [role="listbox"]) :is(button, label, span, a, h2) { color: #ddd !important; }
+html[data-uc-dark] [role="option"][aria-selected="true"] { background: #094771 !important; }
+/* The new native dashboard uses InstUI widgets and stable test IDs.
+   Three hashed surface classes below were read from the September 2026 UI;
+   the semantic selectors cover its stable widget and tab boundaries. */
+html[data-uc-dark] :is(#content > div, #content [class*="tabs__container"], #content [class*="panel__content"]) { background-color: #1e1e1e !important; }
+html[data-uc-dark] #content [data-testid^="widget-"] { background: #252526 !important; color: #d4d4d4 !important; border: 1px solid #454545 !important; box-shadow: 0 2px 8px #0003 !important; }
+html[data-uc-dark] #content [data-testid^="statistics-card-"] { background: #303031 !important; border-color: #505050 !important; }
+html[data-uc-dark] #content :is(.css-1vc9xrm-view, [class*="textInput__facade"]) { background: #303031 !important; color: #ddd !important; border-color: #606060 !important; }
+html[data-uc-dark] #content [data-testid^="widget-"] :is(li, [role="listitem"]) { background-color: transparent !important; border-color: #454545 !important; }
+/* Full-page backdrop: establish a layer under Canvas, then leave generous
+   gutters. Only the functional panels receive an opaque reading surface. */
+html[data-uc-backdrop] { background: #10141b !important; }
+html[data-uc-backdrop] body { isolation: isolate; background: #10141b !important; }
+html[data-uc-backdrop] body { --uc-nav-width: 54px; }
+html[data-uc-backdrop] body.primary-nav-expanded { --uc-nav-width: 84px; }
+html[data-uc-backdrop] #application { position: relative; z-index: 1; }
+html[data-uc-backdrop] #content { max-width: 1140px; width: calc(100% - 112px); margin-inline: auto; padding-bottom: 88px; }
+html[data-uc-backdrop] :is(#content > div, #content [class*="tabs__container"], #content [class*="panel__content"]) { background-color: transparent !important; }
+html[data-uc-backdrop] :is(#dashboard_header_container, .ic-Dashboard-header, .ic-Dashboard-header__layout) { background: #181e27f5 !important; }
+html[data-uc-backdrop] :is(.planner-day h2, [class*="EmptyDay-styles"]) { background: #181e27ee !important; }
+html[data-uc-backdrop] :is(.planner-item, [class*="PlannerItem-styles__root"], [class*="Grouping-styles__items"], .ic-DashboardCard, .ic-DashboardCard__header_content, .ic-DashboardCard__action-container) { background: #1c232df7 !important; border-color: #3b4757 !important; }
+html[data-uc-backdrop] #content [data-testid^="widget-"] { background: #1c232df7 !important; border-color: #3b4757 !important; }
+html[data-uc-backdrop] #content [data-testid^="statistics-card-"] { background: #28313c !important; }
+html[data-uc-backdrop] #content :is(.css-1vc9xrm-view, [class*="textInput__facade"]) { background: #28313c !important; }
+@media (max-width: 780px) {
+  html[data-uc-backdrop] body, html[data-uc-backdrop] body.primary-nav-expanded { --uc-nav-width: 0px; }
+  html[data-uc-backdrop] #content { width: 100%; }
+}
+@media print {
+  html[data-uc-backdrop] #content { width: 100%; max-width: none; padding-bottom: 0; }
+  html[data-uc-dark], html[data-uc-dark] body { color-scheme: light; background: white !important; color: black !important; }
+  html[data-uc-dark] #content :is(p, li, h1, h2, h3, a, span) { color: black !important; background: transparent !important; }
+}

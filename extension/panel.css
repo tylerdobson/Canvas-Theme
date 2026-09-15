@@ -1,0 +1,74 @@
+/* The host contributes no height. The scene and settings have independent
+   fixed layers, so Canvas retains its original document and scroll flow. */
+:host { display: contents; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: #d4d4d4; line-height: 1.5; text-align: left; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+button:focus-visible, input:focus-visible { outline: 2px solid #75beff; outline-offset: 3px; }
+#stage { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; user-select: none; contain: strict; background: #10141b; }
+#stage * { pointer-events: none; }
+.skyline-layer { position: absolute; inset: 0; opacity: var(--scene-opacity, .8); }
+#skyline-art { width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
+.night-vignette { position: absolute; inset: 0; background: linear-gradient(180deg, #10141b22, transparent 65%, #10141b15); }
+.source-pane { position: absolute; left: calc(var(--uc-nav-width, 84px) + 10px); top: 11%; width: 600px; height: 76%; overflow: hidden; opacity: calc(var(--scene-opacity, .8) * .22); transform: rotate(-5deg); transform-origin: top left; mask-image: linear-gradient(180deg, transparent, #000 10%, #000 70%, transparent); }
+.source-label { display: block; margin-left: 10px; padding: 6px 0 12px; color: #75beff; font-size: 13px; letter-spacing: .08em; }
+#source { margin: 0; font: 12px/25px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: pre; color: #b8c9d8; animation: code-drift 55s ease-in-out infinite alternate; animation-play-state: paused; }
+.code-line { height: 25px; }
+.line-number { display: inline-block; width: 38px; padding-right: 12px; text-align: right; color: #a2b0c4; }
+.keyword { color: #c586c0; }
+.number { color: #b5cea8; }
+.function { color: #dcdcaa; }
+.header-token { color: #ce9178; }
+.comment { color: #83a675; }
+@keyframes code-drift { from { transform: translateY(0); } to { transform: translateY(-110px); } }
+.wireframe-pane { position: absolute; right: -160px; top: 4%; width: clamp(410px, 43vw, 670px); aspect-ratio: 1; opacity: calc(var(--scene-opacity, .8) * .23); }
+.wireframe-pane svg { width: 100%; height: 100%; display: block; overflow: visible; }
+#mesh { stroke: #76cbbf; stroke-width: .65; vector-effect: non-scaling-stroke; }
+.wireframe-echo { position: absolute; width: 480px; height: 220px; left: calc(var(--uc-nav-width, 84px) - 130px); bottom: 2%; border: 1px solid #75beff; border-radius: 50%; transform: rotate(-20deg); opacity: calc(var(--scene-opacity, .8) * .12); box-shadow: 0 0 0 20px #75beff18, 0 0 0 45px #75beff10, 0 0 0 70px #75beff09; }
+.pokemon { position: absolute; inset: 0; opacity: var(--scene-opacity, .8); }
+.companion { position: absolute; margin: 0; animation: companion-drift 7s ease-in-out infinite alternate; animation-play-state: paused; animation-delay: var(--offset); filter: drop-shadow(0 5px 4px #000b); }
+.companion img { display: block; object-fit: contain; image-rendering: pixelated; }
+.snivy { left: calc(var(--uc-nav-width, 84px) + 16px); top: 25%; }
+.tepig { left: calc(var(--uc-nav-width, 84px) + 12px); bottom: 20%; }
+.oshawott { right: 16px; top: 53%; }
+.zorua { right: 22px; bottom: 16%; }
+.chandelure { right: 8px; top: 13%; animation-name: lantern-drift; animation-duration: 9s; }
+@keyframes companion-drift { from { transform: translate(0, 0); } to { transform: translate(6px, -5px); } }
+@keyframes lantern-drift { from { transform: translate(-3px, 0); } to { transform: translate(3px, -13px); } }
+#stage[data-moving="true"] :is(#source, .companion) { animation-play-state: running; }
+#stage[data-skyline="false"] .skyline-layer,
+#stage[data-code="false"] .source-pane,
+#stage[data-wireframe="false"] :is(.wireframe-pane, .wireframe-echo),
+#stage[data-pokemon="false"] .pokemon { display: none; }
+#gear { position: fixed; z-index: 999; bottom: 18px; right: 18px; padding: 9px 14px; border: 1px solid #606b7b; border-radius: 4px; background: #202630; color: #e5e5e5; box-shadow: 0 2px 12px #0004; font-size: 12px; pointer-events: auto; }
+#gear:hover, #gear[aria-expanded="true"] { background: #303945; border-color: #75beff; }
+#gear.disabled-theme { background: #fff; color: #333; }
+#settings { position: fixed; bottom: 64px; right: 18px; width: min(310px, calc(100vw - 36px)); max-height: calc(100dvh - 90px); overflow-y: auto; z-index: 1000; padding: 16px; border: 1px solid #566376; border-radius: 6px; color: #e5e5e5; background: #202630; box-shadow: 0 8px 30px #0007; font-size: 12px; pointer-events: auto; }
+#settings header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid #414b59; }
+#settings strong { font-size: 14px; }
+#settings button { color: #ddd; border: 1px solid #596574; border-radius: 3px; background: #303945; padding: 5px 9px; }
+#settings button:disabled { opacity: .5; cursor: default; }
+#settings label { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 7px 0; }
+#settings input[type="checkbox"] { width: 16px; height: 16px; accent-color: #007acc; }
+#settings input[type="range"] { display: block; width: 100%; accent-color: #75beff; }
+#settings p { color: #b6c0cd; font-size: 10px; line-height: 1.6; margin: 10px 0; }
+#settings #save-status:empty { display: none; }
+.settings-actions { display: flex; align-items: center; gap: 8px; margin-top: 8px; font-size: 11px; }
+@media (max-width: 1100px) {
+  .companion img { width: 38px; height: 44px; }
+  .snivy, .tepig { left: calc(var(--uc-nav-width, 84px) + 6px); }
+  .chandelure, .oshawott, .zorua { right: 7px; }
+  .chandelure img { width: 46px; }
+  .source-pane { left: calc(var(--uc-nav-width, 84px) + 2px); opacity: calc(var(--scene-opacity, .8) * .13); }
+  .wireframe-pane { right: -180px; }
+}
+@media (max-width: 780px) {
+  .source-pane { top: 18%; opacity: calc(var(--scene-opacity, .8) * .1); }
+  .wireframe-pane { width: 410px; right: -245px; opacity: calc(var(--scene-opacity, .8) * .15); }
+  .snivy, .tepig, .zorua, .chandelure { display: none; }
+  .oshawott { top: auto; bottom: 78px; right: 7px; }
+  #gear { bottom: 10px; right: 10px; }
+}
+@media (prefers-reduced-motion: reduce) { #source, .companion { animation: none !important; } }
+@media print { :host { display: none !important; } }

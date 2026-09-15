@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "MyUSF Canvas — Unova Dark",
+  "version": "1.2.0",
+  "description": "A full-page Unova night skyline, edge Pokémon, faint C code and wireframe motion behind your dark Canvas dashboard.",
+  "permissions": ["storage"],
+  "content_scripts": [{
+    "matches": ["https://usflearn.instructure.com/*"],
+    "css": ["dashboard.css"],
+    "js": ["content.js", "terminal.js"],
+    "run_at": "document_start",
+    "all_frames": false
+  }],
+  "web_accessible_resources": [{
+    "resources": ["panel.css", "terminal.css", "assets/*.gif", "assets/*.png", "render.c", "render.cpp"],
+    "matches": ["https://usflearn.instructure.com/*"]
+  }]
+}

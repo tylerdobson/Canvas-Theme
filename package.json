@@ -1,0 +1,17 @@
+{
+  "name": "canvas-theme",
+  "version": "1.2.0",
+  "private": true,
+  "description": "Personal Unova and VS Code-inspired theme for MyUSF Canvas",
+  "license": "UNLICENSED",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "check": "node scripts/check.cjs",
+    "test": "node scripts/test.cjs",
+    "package": "node scripts/package.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "30.0.1",
+    "postcss": "8.5.28"
+  }
+}
