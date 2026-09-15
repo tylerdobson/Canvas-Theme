@@ -2,7 +2,19 @@
 
 A personal, presentation-only Chrome extension for the **MyUSF Canvas dashboard**. Combines VS Code Dark+ styling with an Unova-inspired night skyline, animated Generation V Pokémon, faint background code/wireframe motion, and a C++ / ASCII terminal workbench at the top.
 
-![Unova-inspired skyline bundled with the theme](extension/assets/unova-skyline.png)
+## Current appearance
+
+Actual screenshots of version 1.2.0 running in Canvas, cropped to theme-only areas. Course information, grades, names, avatars, and browser chrome are excluded; these are not mockups.
+
+### Top terminal and surrounding backdrop
+
+![Live C++ source and ASCII terminal with the Unova Pokémon strip, dark skyline, and background wireframe](docs/screenshots/terminal-overview.jpg)
+
+### Appearance controls
+
+![Theme controls for the skyline, background code, wireframe, Pokémon, motion, and intensity](docs/screenshots/theme-controls.jpg)
+
+The images capture individual animation frames. See [screenshot notes](docs/screenshots/README.md) for capture scope and privacy details.
 
 ## Install
 
@@ -59,6 +71,6 @@ The package command also requires `zip` and writes `dist/canvas-theme-1.2.0.zip`
 
 The extension runs only on the top-level dashboard paths `/`, `/dashboard`, and `/dashboard/` at `usflearn.instructure.com`. Course, assignment, quiz, login, and inbox pages are excluded. The only requested permission is `storage`; assets are bundled locally. See [privacy and boundaries](docs/PRIVACY.md).
 
-Version 1.2.0 has 24 passing DOM-simulation check groups; 49 ASCII frames match the compiled C++ output. These checks are not a substitute for live browser QA. The latest top panel still needs live visual/responsive verification after manual extension reload. See [verification notes](docs/VERIFICATION.md).
+Version 1.2.0 has 24 passing DOM-simulation check groups; 49 ASCII frames match the compiled C++ output. The desktop top panel and settings have now been observed in live Canvas, as shown above. Full-dashboard interaction and mobile/responsive QA remain incomplete. See [verification notes](docs/VERIFICATION.md).
 
 This is a private, unofficial personal project, not affiliated with USF, Instructure, Microsoft, or Pokémon's rights holders. No open-source license is granted. Third-party character artwork remains subject to its owners' rights; see [asset provenance](docs/ASSETS.md).

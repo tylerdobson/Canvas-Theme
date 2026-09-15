@@ -8,14 +8,18 @@ Coverage includes dashboard-only guards, manifest permissions/resources, image s
 
 Repository packaging preserved the v1.2.0 extension files byte for byte. The installed Downloads copy was not moved or rewritten.
 
-## Live QA still required
+## Live screenshot verification
 
-The prior full-page scene was observed in live MyUSF Canvas. The newer top terminal panel was tested in DOM simulation, but its live layout and responsive appearance have not yet been verified. Browser policy blocked automated extension-management access and the isolated local visual-preview page. No workaround was attempted.
+On September 15, 2026, the top C++/ASCII terminal and appearance controls were captured from the installed theme in live MyUSF Canvas at a 1512 × 805 desktop viewport. The screenshots show the source pane, rendered ASCII output, Pokémon strip, backdrop details, and complete settings panel. Opening and closing the theme controls was verified. Images were cropped at capture time to exclude all coursework, account/avatar, and browser-chrome regions; their exact scope is recorded in [screenshot notes](screenshots/README.md).
 
-After manually reloading the extension, check:
+Earlier extension-management and local-file-preview attempts were blocked by browser policy. These new captures use the actual live Canvas page after the extension had been reloaded, not a workaround or a synthetic preview.
 
-1. The panel appears at the top; source and ASCII output are readable.
-2. Desktop and narrow layouts have no clipped output or overlapping controls.
+## Remaining live QA
+
+The screenshots establish desktop appearance of the captured regions, not exhaustive browser compatibility or full-dashboard behavior. Still check:
+
+1. All dashboard variants retain their intended layout.
+2. Narrow/mobile layouts have no clipped output or overlapping controls.
 3. Terminal pause leaves the existing backdrop running.
 4. Global pause, reduced motion, and hidden-tab suspension behave as expected.
 5. Native dashboard links/menus remain usable, without submitting or changing coursework during QA.
